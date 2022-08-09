@@ -1,0 +1,56 @@
+<div class="container-fluid px-30">
+  <a class="navbar-brand" href="#">
+    <img src="https://appnucleus.com.br/assets/Logo%20Verde-239c4f3db34e025da6e2d6c564491f63891e14178e1fa0231c32e2c9aa67e50f.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+    NucleusBlog
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link active" aria-current="page" href="#">Home</a>
+      <a class="nav-link" href="#">Blog</a>
+      <a class="nav-link" href="#">Contato</a>
+    </div>
+  </div>
+  <form class="d-flex" role="search">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-light" type="submit">Search</button>
+  </form>
+  <div>
+
+
+    <% if current_user %>
+      <nav class=" ">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= current_user.email %>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Editar</a></li>
+                <li><a class="dropdown-item" href="#">Meus Posts</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    <% else %>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <%= link_to "Login", user_session_path, class: "nav-link" %>
+          <%= link_to "Registre-se" , user_registration_path, class: "nav-link" %>
+
+
+        </div>
+
+    <% end %>
+  </div>
+
+</div>
+
+</div>

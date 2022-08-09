@@ -1,0 +1,32 @@
+
+<% if @comments.count > 0
+     @comments.each do |comment|
+%>
+<div class="col-lg-6">
+
+  <div class="card">
+    <div class="comment-widgets scrollable">
+      <!-- Comment Row -->
+      <div class="d-flex flex-row comment-row mt-0">
+        <div class="p-2">
+          <img
+            src="https://appnucleus.com.br/assets/Logo%20Verde-239c4f3db34e025da6e2d6c564491f63891e14178e1fa0231c32e2c9aa67e50f.png"
+            alt="user"
+            width="50"
+            class="rounded-circle"
+            />
+        </div>
+
+        <div class="comment-text w-100">
+        <h6 class="font-medium"><%= comment.name %></h6>
+          <span class="mb-3 d-block"><%= comment&.body %></span>
+          <div class="comment-footer">
+            <span class="text-muted float-end"><%= comment&.created_at %></span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+            <% end end %>

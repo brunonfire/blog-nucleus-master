@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog-Nucleus</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+  </head>
+
+
+  <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-purple">
+    <%= render 'shared/header' %>
+  </nav>
+
+  <body>
+    <%= yield %>
+  </body>
+
+
+  <nav class="navbar navbar-expand-lg  fixed-bottom navbar-dark bg-purple">
+    <%= render 'shared/footer' %>
+  </nav>
+
+</html>
