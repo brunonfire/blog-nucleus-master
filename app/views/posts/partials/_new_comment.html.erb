@@ -1,4 +1,4 @@
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+<div class="mt-5">
   <%= form_with(model: @comment, url: create_comment_posts_path, method: "post") do |form| %>
     <% if @comment.errors.any? %>
       <div id="error_explanation">
@@ -12,36 +12,28 @@
       </div>
     <% end %>
 
-    <div class="col-lg-9 col-md-6 col-sm-12 col-xs-12">
+    <div class="">
       <%= form.hidden_field :post_id, value: @post.id %>
       <div class="card">
         <div class="comment-widgets scrollable">
           <!-- Comment Row -->
           <div class="d-flex flex-row comment-row mt-0">
-            <div class="p-2">
-              <img
-                src="https://appnucleus.com.br/assets/Logo%20Verde-239c4f3db34e025da6e2d6c564491f63891e14178e1fa0231c32e2c9aa67e50f.png"
-                alt="user"
-                width="50"
-                class="rounded-circle"
-                />
-            </div>
+
 
             <div class="comment-text w-100">
-              <div class="field">
-                <%= form.label :name %>
-                <%= form.text_field :name %>
+
+              <div class="d-flex flex-column align-items-start">
+                <div class="d-flex">
+                  <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                  <%= form.text_field :name , class: "form-control ml-1 shadow-none name_area" %>
+                </div>
+                <%= form.text_area :body , class: "form-control ml-1 shadow-none textarea" %>
               </div>
-              <div class="field">
-                <%= form.label :body %>
-                <%= form.text_area :body %>
-              </div>
-              <div class="comment-footer">
-                <div class="actions">
-                  <%= form.submit "salvar" %>
+
+                <div class="mt-2 text-right">
+                  <%= form.submit "Comentar" , class: "btn btn-primary btn-sm shadow-none"%>
                 </div>
 
-              </div>
             </div>
           </div>
         </div>

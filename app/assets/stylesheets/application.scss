@@ -14,10 +14,15 @@
 
 
 @import "bootstrap";
-
+@import "font-awesome";
 
 $transparent-dark-bg: rgba(0, 0, 0, 0.05);
 $purple:  #6f42c1;
+
+.center_div{
+  margin: 0 auto;
+  width:80% /* value of your choice which suits your alignment */
+}
 
 .bg-purple {
   background-color: #6f42c1;
@@ -55,5 +60,8 @@ $purple:  #6f42c1;
   padding-right: 30vh;
 }
 
-
-body{background: #eee}.date{font-size: 11px}.comment-text{font-size: 12px}.fs-12{font-size: 12px}.shadow-none{box-shadow: none}.name{color: #007bff}.cursor:hover{color: blue}.cursor{cursor: pointer}.textarea{resize: none}
+.name_area{
+  width: 50%;
+  height: 20%;
+}
+.date{font-size: 11px}.comment-text{font-size: 12px}.fs-12{font-size: 12px}.shadow-none{box-shadow: none}.name{color: #007bff}.cursor:hover{color: blue}.cursor{cursor: pointer}.textarea{resize: none}
