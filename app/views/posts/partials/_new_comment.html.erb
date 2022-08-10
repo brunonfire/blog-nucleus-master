@@ -1,29 +1,54 @@
-<%= form_with(model: @comment, url: create_comment_posts_path, method: "post") do |form| %>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+  <%= form_with(model: @comment, url: create_comment_posts_path, method: "post") do |form| %>
+    <% if @comment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-        <% @comment.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% @comment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="col-lg-9 col-md-6 col-sm-12 col-xs-12">
+      <%= form.hidden_field :post_id, value: @post.id %>
+      <div class="card">
+        <div class="comment-widgets scrollable">
+          <!-- Comment Row -->
+          <div class="d-flex flex-row comment-row mt-0">
+            <div class="p-2">
+              <img
+                src="https://appnucleus.com.br/assets/Logo%20Verde-239c4f3db34e025da6e2d6c564491f63891e14178e1fa0231c32e2c9aa67e50f.png"
+                alt="user"
+                width="50"
+                class="rounded-circle"
+                />
+            </div>
+
+            <div class="comment-text w-100">
+              <div class="field">
+                <%= form.label :name %>
+                <%= form.text_field :name %>
+              </div>
+              <div class="field">
+                <%= form.label :body %>
+                <%= form.text_area :body %>
+              </div>
+              <div class="comment-footer">
+                <div class="actions">
+                  <%= form.submit "salvar" %>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+
   <% end %>
 
-  <%= form.hidden_field :post_id, value: @post.id %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "salvar" %>
-  </div>
-<% end %>
+</div>

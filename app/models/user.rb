@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :posts, dependent: :destroy
 
+  attribute :user_type, :integer, default: 0
+
+  enum user_type: [:user,:manager,:admin]
 
 end
